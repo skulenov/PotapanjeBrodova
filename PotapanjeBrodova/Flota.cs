@@ -19,6 +19,17 @@ namespace PotapanjeBrodova
             get { return brodovi.Count; }
         }
 
+        public RezultatGadjanja Gadjaj(Polje polje)
+        {
+            foreach (Brod b in brodovi)
+            {
+                var rezultat = b.Gadjaj(polje);
+                if (rezultat != RezultatGadjanja.Promasaj)
+                    return rezultat;
+            }
+            return RezultatGadjanja.Promasaj;
+        }
+
         List<Brod> brodovi = new List<Brod>();
     }
 }
