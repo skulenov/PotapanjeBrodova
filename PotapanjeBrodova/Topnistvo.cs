@@ -25,7 +25,7 @@ namespace PotapanjeBrodova
 
         public void ObradiGađanje(RezultatGađanja rezultat)
         {
-
+            //implementirati logiku za promjenu taktike
         }
 
         private void PromijeniTaktikuUNapipavanje()
