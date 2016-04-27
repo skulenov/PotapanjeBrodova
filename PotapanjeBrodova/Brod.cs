@@ -5,7 +5,7 @@ using System.Text;
 
 namespace PotapanjeBrodova
 {
-    public enum RezultatGadjanja
+    public enum RezultatGađanja
     {
         Promasaj,
         Pogodak,
@@ -23,15 +23,15 @@ namespace PotapanjeBrodova
             get { return Polja.Count(); }
         }
 
-        public RezultatGadjanja Gadjaj(Polje p)
+        public RezultatGađanja Gadjaj(Polje p)
         {
             if (!Polja.Contains(p))
-                return RezultatGadjanja.Promasaj;
+                return RezultatGađanja.Promasaj;
             
             pogodjenaPolja.Add(p);
             if (pogodjenaPolja.Count == Polja.Count())
-                return RezultatGadjanja.Potonuce;
-            return RezultatGadjanja.Pogodak;
+                return RezultatGađanja.Potonuce;
+            return RezultatGađanja.Pogodak;
         }
 
         public readonly IEnumerable<Polje> Polja;
