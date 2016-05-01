@@ -7,9 +7,9 @@ namespace PotapanjeBrodova
 {
     public enum RezultatGađanja
     {
-        Promasaj,
+        Promašaj,
         Pogodak,
-        Potonuce
+        Potonuće
     }
     public class Brod
     {
@@ -23,18 +23,18 @@ namespace PotapanjeBrodova
             get { return Polja.Count(); }
         }
 
-        public RezultatGađanja Gadjaj(Polje p)
+        public RezultatGađanja Gađaj(Polje p)
         {
             if (!Polja.Contains(p))
-                return RezultatGađanja.Promasaj;
+                return RezultatGađanja.Promašaj;
             
-            pogodjenaPolja.Add(p);
-            if (pogodjenaPolja.Count == Polja.Count())
-                return RezultatGađanja.Potonuce;
+            pogođenaPolja.Add(p);
+            if (pogođenaPolja.Count == Polja.Count())
+                return RezultatGađanja.Potonuće;
             return RezultatGađanja.Pogodak;
         }
 
         public readonly IEnumerable<Polje> Polja;
-        private HashSet<Polje> pogodjenaPolja = new HashSet<Polje>();
+        private HashSet<Polje> pogođenaPolja = new HashSet<Polje>();
     }
 }

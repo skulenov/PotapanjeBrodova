@@ -47,7 +47,7 @@ namespace UnitTests
 
          
 
-            Assert.AreEqual(RezultatGađanja.Promasaj,f.Gadjaj(new Polje(9,9)));
+            Assert.AreEqual(RezultatGađanja.Promašaj,f.Gađaj(new Polje(9,9)));
             Assert.IsTrue(f.Brodovi.Contains(b1));
             Assert.IsTrue(f.Brodovi.Contains(b2));
             
@@ -69,8 +69,8 @@ namespace UnitTests
 
 
 
-            Assert.AreEqual(RezultatGađanja.Pogodak, f.Gadjaj(new Polje(0, 1)));
-            Assert.AreEqual(RezultatGađanja.Pogodak, f.Gadjaj(new Polje(1, 3)));
+            Assert.AreEqual(RezultatGađanja.Pogodak, f.Gađaj(new Polje(0, 1)));
+            Assert.AreEqual(RezultatGađanja.Pogodak, f.Gađaj(new Polje(1, 3)));
         }
 
         [TestMethod]
@@ -89,10 +89,10 @@ namespace UnitTests
 
 
 
-            Assert.AreEqual(RezultatGađanja.Pogodak, f.Gadjaj(new Polje(0, 1)));
-            Assert.AreEqual(RezultatGađanja.Pogodak, f.Gadjaj(new Polje(0, 2)));
-            Assert.AreEqual(RezultatGađanja.Promasaj, f.Gadjaj(new Polje(0, 3)));
-            Assert.AreEqual(RezultatGađanja.Potonuce, f.Gadjaj(new Polje(0, 0)));
+            Assert.AreEqual(RezultatGađanja.Pogodak, f.Gađaj(new Polje(0, 1)));
+            Assert.AreEqual(RezultatGađanja.Pogodak, f.Gađaj(new Polje(0, 2)));
+            Assert.AreEqual(RezultatGađanja.Promašaj, f.Gađaj(new Polje(0, 3)));
+            Assert.AreEqual(RezultatGađanja.Potonuće, f.Gađaj(new Polje(0, 0)));
         }
 
         [TestMethod]
@@ -111,12 +111,12 @@ namespace UnitTests
 
 
 
-            Assert.AreEqual(RezultatGađanja.Pogodak, f.Gadjaj(new Polje(0, 1)));
-            Assert.AreEqual(RezultatGađanja.Pogodak, f.Gadjaj(new Polje(0, 2)));
-            Assert.AreEqual(RezultatGađanja.Potonuce, f.Gadjaj(new Polje(0, 0)));
+            Assert.AreEqual(RezultatGađanja.Pogodak, f.Gađaj(new Polje(0, 1)));
+            Assert.AreEqual(RezultatGađanja.Pogodak, f.Gađaj(new Polje(0, 2)));
+            Assert.AreEqual(RezultatGađanja.Potonuće, f.Gađaj(new Polje(0, 0)));
 
-            Assert.AreEqual(RezultatGađanja.Pogodak, f.Gadjaj(new Polje(1, 3)));
-            Assert.AreEqual(RezultatGađanja.Potonuce, f.Gadjaj(new Polje(2, 3)));
+            Assert.AreEqual(RezultatGađanja.Pogodak, f.Gađaj(new Polje(1, 3)));
+            Assert.AreEqual(RezultatGađanja.Potonuće, f.Gađaj(new Polje(2, 3)));
         }
     }
 }

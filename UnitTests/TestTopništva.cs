@@ -35,7 +35,7 @@ namespace UnitTests
         public void Topništvo_TaktikaGađanjaNakonPotonućaJeNapipavanje()
         {
             Topništvo t = new Topništvo();
-            t.ObradiGađanje(RezultatGađanja.Potonuce);
+            t.ObradiGađanje(RezultatGađanja.Potonuće);
             Assert.AreEqual(TaktikaGađanja.Napipavanje, t.TrenutnaTaktika);
         }
 
@@ -43,13 +43,13 @@ namespace UnitTests
         public void Topništvo_TaktikaGađanjaNakonPromašajaSeNeMijenja()
         {
             Topništvo t = new Topništvo();  //Inicijalno je napipavanje
-            t.ObradiGađanje(RezultatGađanja.Promasaj);
+            t.ObradiGađanje(RezultatGađanja.Promašaj);
             Assert.AreEqual(TaktikaGađanja.Napipavanje, t.TrenutnaTaktika);
             t.ObradiGađanje(RezultatGađanja.Pogodak);
-            t.ObradiGađanje(RezultatGađanja.Promasaj);
+            t.ObradiGađanje(RezultatGađanja.Promašaj);
             Assert.AreEqual(TaktikaGađanja.Okruživanje, t.TrenutnaTaktika);
             t.ObradiGađanje(RezultatGađanja.Pogodak);
-            t.ObradiGađanje(RezultatGađanja.Promasaj);
+            t.ObradiGađanje(RezultatGađanja.Promašaj);
             Assert.AreEqual(TaktikaGađanja.SustavnoUništavanje, t.TrenutnaTaktika);
         }
         // 
