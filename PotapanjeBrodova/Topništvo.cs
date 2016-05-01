@@ -26,6 +26,17 @@ namespace PotapanjeBrodova
         public void ObradiGađanje(RezultatGađanja rezultat)
         {
             //implementirati logiku za promjenu taktike
+            if (rezultat == RezultatGađanja.Pogodak)
+            {
+                if (TrenutnaTaktika == TaktikaGađanja.Napipavanje)
+                    PromijeniTaktikuUOkruživanje();
+                else if (TrenutnaTaktika == TaktikaGađanja.Okruživanje)
+                    PromijeniTaktikuUSustavnoUništavanje();
+            }
+            else if (rezultat == RezultatGađanja.Potonuće)
+            {
+                PromijeniTaktikuUNapipavanje();
+            }
         }
 
         private void PromijeniTaktikuUNapipavanje()
