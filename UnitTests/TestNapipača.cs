@@ -1,7 +1,8 @@
 ﻿using System;
+using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using PotapanjeBrodova;
-using System.Linq;
+
 namespace UnitTests
 {
     [TestClass]
@@ -23,16 +24,16 @@ namespace UnitTests
         //    const int duljinaBroda = 3;
         //    Napipač n = new Napipač(m, duljinaBroda);
         //    Assert.AreEqual(15, n.DajKandidateZaHorizontalniBrod().Count());
-        //    //provjera koliko se koje polje puta pojavi u listi
         //}
 
         [TestMethod]
-        public void Napipač_ListaPoljaZaVertikalniBrodDuljine3MoraSadržavati15Polja()
+        public void Napipač_ListaPoljaZaVertikalniBrodDuljine4MoraSadržavati16Polja()
         {
             Mreža m = new Mreža(5, 2);
             const int duljinaBroda = 4;
             Napipač n = new Napipač(m, duljinaBroda);
             Assert.AreEqual(16, n.DajKandidateZaVertikalniBrod().Count());
         }
+
     }
 }

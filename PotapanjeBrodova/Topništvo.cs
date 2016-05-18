@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 
@@ -11,6 +12,7 @@ namespace PotapanjeBrodova
         Okruživanje,
         SustavnoUništavanje
     }
+
     public class Topništvo
     {
         public Topništvo(int redaka, int stupaca, int[] duljineBrodova)
@@ -28,24 +30,38 @@ namespace PotapanjeBrodova
 
         public void ObradiGađanje(RezultatGađanja rezultat)
         {
-            //implementirati logiku za promjenu taktike
-            if (rezultat == RezultatGađanja.Pogodak)
+            switch (rezultat)
             {
-                if (TrenutnaTaktika == TaktikaGađanja.Napipavanje)
-                    PromijeniTaktikuUOkruživanje();
-                else if (TrenutnaTaktika == TaktikaGađanja.Okruživanje)
-                    PromijeniTaktikuUSustavnoUništavanje();
-            }
-            else if (rezultat == RezultatGađanja.Potonuće)
-            {
-                PromijeniTaktikuUNapipavanje();
+                case RezultatGađanja.Potonuće:
+                    PromijeniTaktikuUNapipavanje();
+                    break;
+                case RezultatGađanja.Pogodak:
+                    switch (TrenutnaTaktika)
+                    {
+                        case TaktikaGađanja.Napipavanje:
+                            PromijeniTaktikuUOkruživanje();
+                            break;
+                        case TaktikaGađanja.Okruživanje:
+                            PromijeniTaktikuUSustavnoUništavanje();
+                            break;
+                        case TaktikaGađanja.SustavnoUništavanje:
+                            break;
+                        default:
+                            Debug.Assert(false, string.Format("Nepodržana taktika {0}", TrenutnaTaktika.ToString()));
+                            break;
+                    }
+                    break;
+                case RezultatGađanja.Promašaj:
+                    break;
+                default:
+                    Debug.Assert(false, string.Format("Nepodržani rezultat gađanja {0}", rezultat.ToString()));
+                    break;
             }
         }
 
         private void PromijeniTaktikuUNapipavanje()
         {
             TrenutnaTaktika = TaktikaGađanja.Napipavanje;
-
             pucač = new Napipač(mreža, duljineBrodova[0]);
         }
 
@@ -61,8 +77,7 @@ namespace PotapanjeBrodova
 
         public TaktikaGađanja TrenutnaTaktika
         {
-            get;
-            private set;
+            get; private set;
         }
 
         IPucač pucač;

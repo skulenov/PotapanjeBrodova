@@ -11,6 +11,7 @@ namespace PotapanjeBrodova
         Pogodak,
         Potonuće
     }
+
     public class Brod
     {
         public Brod(IEnumerable<Polje> polja)
@@ -27,7 +28,6 @@ namespace PotapanjeBrodova
         {
             if (!Polja.Contains(p))
                 return RezultatGađanja.Promašaj;
-            
             pogođenaPolja.Add(p);
             if (pogođenaPolja.Count == Polja.Count())
                 return RezultatGađanja.Potonuće;

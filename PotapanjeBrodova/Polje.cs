@@ -22,10 +22,12 @@ namespace PotapanjeBrodova
             Polje p = (Polje)obj;
             return (p.Redak == Redak) && (p.Stupac == Stupac);
         }
+
         public override int GetHashCode()
         {
             return Redak ^ (Stupac >> 16);
         }
+
         public readonly int Redak;
         public readonly int Stupac;
     }

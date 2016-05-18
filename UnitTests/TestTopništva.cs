@@ -1,13 +1,14 @@
 ﻿using System;
+using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using PotapanjeBrodova;
-using System.Linq;
+
 namespace UnitTests
 {
     [TestClass]
     public class TestTopništva
     {
-        int[] duljineBrodova = {1,2,3 };
+        int[] duljineBrodova = { 1, 2, 3 };
         [TestMethod]
         public void Topništvo_PočetnaTaktikaGađanjaJeNapipavanje()
         {
@@ -43,22 +44,26 @@ namespace UnitTests
         [TestMethod]
         public void Topništvo_TaktikaGađanjaNakonPromašajaSeNeMijenja()
         {
-            Topništvo t = new Topništvo(10, 10, duljineBrodova);  //Inicijalno je napipavanje
+            Topništvo t = new Topništvo(10, 10, duljineBrodova);
+            // inicijalno je Napipavanje
             t.ObradiGađanje(RezultatGađanja.Promašaj);
             Assert.AreEqual(TaktikaGađanja.Napipavanje, t.TrenutnaTaktika);
             t.ObradiGađanje(RezultatGađanja.Pogodak);
+            // nakon prvog pogotka je Okruživanje
             t.ObradiGađanje(RezultatGađanja.Promašaj);
             Assert.AreEqual(TaktikaGađanja.Okruživanje, t.TrenutnaTaktika);
             t.ObradiGađanje(RezultatGađanja.Pogodak);
+            // nakon drugog pogotka je SustavnoUništavanje
             t.ObradiGađanje(RezultatGađanja.Promašaj);
             Assert.AreEqual(TaktikaGađanja.SustavnoUništavanje, t.TrenutnaTaktika);
         }
+
         [TestMethod]
         public void Topništvo_NapipavanjeDajeBiloKojePoljeNaPraznojMreži()
         {
             Topništvo t = new Topništvo(10, 10, duljineBrodova);
             Assert.IsTrue(new Mreža(10,10).DajSlobodnaPolja().Contains(t.UputiPucanj()));
         }
-        // 
+
     }
 }
